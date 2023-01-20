@@ -6,6 +6,7 @@ fn main() {
     let mut mid: Vec<Vec<_>> = Vec::new();
 
     let mut output: Vec<i32> = Vec::new();
+    let mut answer: i32 = 0;
 
     for s in input {
         mid.push(s.split("\n").collect());
@@ -21,7 +22,25 @@ fn main() {
         output.push(z);
     }
 
-    let counter
+    let mut counter = 0;
 
-    print!("{:?}", output);
+    for x in &output {
+        counter += 1;
+
+        let mut v = 0;
+        for y in &output {
+            if x == y {
+                //hello
+            } else if x < &y {
+                v += 1;
+            }
+        }
+
+        if v < 3 {
+            println!("Elf {} has the most food, with {}", counter, x);
+            answer += x;
+        }
+    }
+
+    println!("{}", answer);
 }
